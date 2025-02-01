@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @Config
 public class Intake extends SubsystemBase {
-    public static double RUNNING_SPEED = 0.75;
+    public static double RUNNING_SPEED = 0.5;
 
     private final Motor intake;
     private boolean running = false;
