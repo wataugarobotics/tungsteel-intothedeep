@@ -11,8 +11,8 @@ public class Basket extends SubsystemBase {
 
     private boolean isOpen = false;
 
-    public static double MIN_ANGLE = 25.0;
-    public static double MAX_ANGLE = 40.0;
+    public static double MIN_ANGLE = 0.0;
+    public static double MAX_ANGLE = 100.0;
 
     public Basket(HardwareMap hwMap) {
         servo = new SimpleServo(hwMap, "basket", MIN_ANGLE, MAX_ANGLE);

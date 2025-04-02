@@ -20,7 +20,7 @@ public class Slide extends SubsystemBase {
     public static double TE = 50.0;
     public static double TD = 5.0;
 
-    public static double PAST_BASKET_POS = mmToTicks(100);
+    public static double PAST_BASKET_POS = mmToTicks(204);
 
     public static double speedMod = 0.75;
 

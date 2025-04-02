@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.commands.DriveCommand;
 import org.firstinspires.ftc.teamcode.commands.RunIntakeCommand;
 import org.firstinspires.ftc.teamcode.commands.SlideCommand;
-import org.firstinspires.ftc.teamcode.commands.SlideToBasketPosCommand;
+import org.firstinspires.ftc.teamcode.commands.SlideToPosCommand;
 import org.firstinspires.ftc.teamcode.subsystems.Basket;
 import org.firstinspires.ftc.teamcode.subsystems.Drivetrain;
 import org.firstinspires.ftc.teamcode.subsystems.Intake;
@@ -34,7 +34,7 @@ public class OneDriver extends CommandOpMode {
 
         gamepad.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).whenHeld(new RunIntakeCommand(intake, false));
         gamepad.getGamepadButton(GamepadKeys.Button.DPAD_UP).whenHeld(new RunIntakeCommand(intake, true));
-        gamepad.getGamepadButton(GamepadKeys.Button.X).whenPressed(new SlideToBasketPosCommand(slide).andThen(new InstantCommand(lift::toggle, lift)));
+        gamepad.getGamepadButton(GamepadKeys.Button.X).whenPressed(new SlideToPosCommand(slide, Slide.PAST_BASKET_POS).andThen(new LiftToggleCommand(lift).withTimeout(1000))/*.andThen(new SlideToPosCommand(slide, 0))/*.withTimeout(5000)*/);
         gamepad.getGamepadButton(GamepadKeys.Button.A).whenPressed(new InstantCommand(basket::toggle, basket));
         gamepad.getGamepadButton(GamepadKeys.Button.B).whenPressed(new InstantCommand(drivetrain::resetImu, drivetrain));
 

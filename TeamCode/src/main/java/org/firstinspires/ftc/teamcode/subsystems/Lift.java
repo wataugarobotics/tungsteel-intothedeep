@@ -17,7 +17,7 @@ public class Lift extends SubsystemBase {
     public static double KI = 0.0001;
     public static double KD = 0.0008;
     public static double KF = 0.0001;
-    public static double TE = 10.0;
+    public static double TE = 50.0;
     public static double TD = 5.0;
 
     public static double TOP_HEIGHT = mmToTicks(700);
@@ -25,7 +25,7 @@ public class Lift extends SubsystemBase {
     private static final double TICKS_PER_MM =  384.5 / 112;
     private final double MAX_HEIGHT = mmToTicks(960);
 
-    public static double speedMod = 0.0;
+    public static double speedMod = 0.75;
 
     private final MotorEx motor;
     private final FtcDashboard dashboard = FtcDashboard.getInstance();
@@ -89,6 +89,10 @@ public class Lift extends SubsystemBase {
 
     public void toggle() {
         setHeight(target == 0 ? TOP_HEIGHT : 0);
+    }
+
+    public boolean isAtTarget() {
+        return pidf.atSetPoint();
     }
 
     /**
